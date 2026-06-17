@@ -72,8 +72,8 @@ ${
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-300">
-            Renseigne les informations du livre, ajoute le lien d’achat, puis
-            génère un message dans un style éditorial professionnel.
+            Renseignez les informations du livre, ajoutez le lien d’achat, puis
+            génèrez un message dans un style éditorial professionnel.
           </p>
         </header>
 
@@ -84,7 +84,7 @@ ${
             </h2>
 
             <p className="mb-6 text-sm text-slate-300">
-              Remplis les champs ci-dessous pour générer le post.
+              Remplissez les champs ci-dessous pour générer le post.
             </p>
 
             <div className="space-y-5">
