@@ -4,7 +4,10 @@ import { useState } from "react";
 
 export default function Home() {
   const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [isbn, setIsbn] = useState("");
+  const [publicationDate, setPublicationDate] = useState("");
   const [summary, setSummary] = useState("");
   const [link, setLink] = useState("");
   const [theme, setTheme] = useState("");
@@ -12,21 +15,32 @@ export default function Home() {
 
   function generatePosts() {
     const finalTitle = title || "Titre de l’ouvrage";
+    const finalSubtitle = subtitle ? ` : ${subtitle}` : "";
     const finalAuthor = author || "Nom de l’auteur";
     const finalTheme = theme || "ce sujet";
     const finalSummary =
       summary ||
       "Cet ouvrage propose une approche claire et accessible pour mieux comprendre les enjeux abordés.";
 
+    const publicationLine = publicationDate
+      ? `L’ouvrage paraîtra le ${publicationDate}.`
+      : "";
+
+    const isbnLine = isbn ? `ISBN : ${isbn}` : "";
+
     const generatedText = `⚡ NOUVEAUTÉ 2026 ⚡
 
-Nous avons fait paraître un ouvrage qui s’intitule "${finalTitle}", écrit par ${finalAuthor}.
+Nous avons fait paraître un ouvrage qui s’intitule "${finalTitle}${finalSubtitle}", écrit par ${finalAuthor}.
+
+${publicationLine}
 
 ${finalTheme} reste un sujet important, et la sensibilisation ainsi que l’accès à une information claire sont plus essentiels que jamais.
 
 À travers cet ouvrage, l’auteur apporte des réponses accessibles et structurées afin d’aider les lecteurs à mieux comprendre les enjeux, à approfondir leurs connaissances et à disposer de repères utiles.
 
 ${finalSummary}
+
+${isbnLine}
 
 Si ce sujet vous intéresse, vous pouvez dès à présent vous procurer l’ouvrage afin d’approfondir vos connaissances et de disposer d’un guide pratique pour mieux comprendre et agir.
 
@@ -54,7 +68,7 @@ ${
           </div>
 
           <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            Crée un post de lancement prêt à publier
+            Créez un post de lancement prêt à publier
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-300">
@@ -88,6 +102,18 @@ ${
 
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-200">
+                  Sous-titre
+                </label>
+                <input
+                  className="w-full rounded-xl border border-white/10 bg-white/90 p-4 text-slate-900 outline-none transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-400/20"
+                  placeholder="Exemple : 100 questions pour s’informer et réagir"
+                  value={subtitle}
+                  onChange={(e) => setSubtitle(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-200">
                   Auteur / autrice
                 </label>
                 <input
@@ -96,6 +122,32 @@ ${
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
                 />
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-200">
+                    ISBN
+                  </label>
+                  <input
+                    className="w-full rounded-xl border border-white/10 bg-white/90 p-4 text-slate-900 outline-none transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-400/20"
+                    placeholder="Exemple : 978-2-7472-XXXX-X"
+                    value={isbn}
+                    onChange={(e) => setIsbn(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-200">
+                    Date de parution
+                  </label>
+                  <input
+                    type="date"
+                    className="w-full rounded-xl border border-white/10 bg-white/90 p-4 text-slate-900 outline-none transition focus:border-indigo-400 focus:ring-4 focus:ring-indigo-400/20"
+                    value={publicationDate}
+                    onChange={(e) => setPublicationDate(e.target.value)}
+                  />
+                </div>
               </div>
 
               <div>
@@ -163,7 +215,7 @@ ${
             </div>
 
             {!result ? (
-              <div className="flex min-h-[520px] items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
+              <div className="flex min-h-[600px] items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 text-center">
                 <div>
                   <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100 text-2xl">
                     📚
@@ -178,7 +230,7 @@ ${
                 </div>
               </div>
             ) : (
-              <div className="min-h-[520px] rounded-2xl bg-slate-50 p-6">
+              <div className="min-h-[600px] rounded-2xl bg-slate-50 p-6">
                 <pre className="whitespace-pre-wrap text-sm leading-7 text-slate-800">
                   {result}
                 </pre>
@@ -197,9 +249,10 @@ ${
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
-            <h3 className="mb-2 font-semibold">Lien intégré</h3>
+            <h3 className="mb-2 font-semibold">Informations complètes</h3>
             <p className="text-sm text-slate-300">
-              Le lien d’achat est ajouté automatiquement dans le texte final.
+              Ajoute le titre, le sous-titre, l’ISBN, la date de parution et le
+              lien d’achat.
             </p>
           </div>
 
