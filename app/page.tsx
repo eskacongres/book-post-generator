@@ -23,7 +23,7 @@ export default function Home() {
       "Cet ouvrage propose une approche claire et accessible pour mieux comprendre les enjeux abordés.";
 
     const publicationLine = publicationDate
-      ? `L’ouvrage paraîtra le ${publicationDate}.`
+      ? `L’ouvrage est paru le ${publicationDate}.`
       : "";
 
     const isbnLine = isbn ? `ISBN : ${isbn}` : "";
