@@ -259,7 +259,7 @@ ${
           <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
             <h3 className="mb-2 font-semibold">Prêt à copier</h3>
             <p className="text-sm text-slate-300">
-              Une fois généré, le post peut être copié directement pour LinkedIn.
+              Une fois généré, le post peut être copié directement pour des réseaux sociaux tel queLinkedIn.
             </p>
           </div>
         </section>
