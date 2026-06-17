@@ -36,7 +36,7 @@ ${
     : "Pour l’acheter, retrouvez prochainement le lien de l’ouvrage."
 }
 
-hashtag#Actualités hashtag#EditionsESKA hashtag#MAEditions`;
+#Actualités #EditionsESKA #MAEditions`;
 
     setResult(generatedText);
   }
